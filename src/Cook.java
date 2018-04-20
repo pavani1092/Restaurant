@@ -10,13 +10,16 @@ public class Cook extends Thread{
 	public Cook(int i) {
 		//System.out.println("in cook "+i+" "+Thread.currentThread().getName());
 		this.name = i;
-		this.setName("cook-"+i);
 	}
 
 	public void startCooking(Diner diner) {
 		this.diner = diner;
 		
 		while(checkOrders()) {
+			if(currentTime>600) {
+				int x = 1;
+				x+=2;
+			}
 			int machine = Machine.getNextAvailable(needBurger, needFries,needCoke,needSundae);
 			switch(machine) {
 				case 1:

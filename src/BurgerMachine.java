@@ -7,6 +7,7 @@ public class BurgerMachine extends Machine {
 	@Override
 	public synchronized void AccessMachine(Cook c) {
 		availableTime = Math.max(availableTime, c.getCurrentTime())+5;
+		
 		c.setCurrentTime(availableTime);
 	}
 	

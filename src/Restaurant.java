@@ -55,9 +55,21 @@ public class Restaurant {
 				diner[i] = d;
 			}
 		}
-		System.out.println(""+"name"+" "+"entryTime"+" "+"tableTime"+" "+"cookTime"+" "+"burgerTime"+" "+"friesTime"+" "+"sodaTime"+" "+"sundaeTime");;
+		System.out.println();
+		System.out.println("diner entryTime tableTime cook cookTime burgerReadyTime friesReadyTime sodaReadyTime sundaeReadyTime leavesAt");
 		for(int i=0;i<r.numDiners;i++)
 			diner[i].start();
+		int last = 0;
+		for(int i=0;i<r.numDiners;i++) {
+			try {
+				diner[i].join();
+				last = Math.max(diner[i].currentTime, last);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		System.out.println("Last Diner leaves at "+last);	
 		
 	}
 }
