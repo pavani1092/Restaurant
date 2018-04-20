@@ -6,7 +6,7 @@ public class Machine {
 	public static int SUNDAE =4;
 	public int availableTime = 0;
 	public static Object accessLock = new Object();
-	public synchronized void AccessMachine(Cook c) {
+	public synchronized void AccessMachine(Cook c, int count) {
 	}
 	
 	public synchronized int getTime() {

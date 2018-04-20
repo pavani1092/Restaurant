@@ -5,8 +5,8 @@ public class SundaeMachine extends Machine {
 	private SundaeMachine() {};
 	
 	@Override
-	public synchronized void AccessMachine(Cook c) {
-		availableTime = Math.max(availableTime, c.getCurrentTime())+2;
+	public synchronized void AccessMachine(Cook c, int count) {
+		availableTime = Math.max(availableTime, c.getCurrentTime())+2*count;
 		c.setCurrentTime(availableTime);
 	}
 	

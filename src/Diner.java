@@ -2,7 +2,7 @@
 public class Diner extends Thread {
 	public int entryTime;
 	public Table table = null;
-	private Cook cook;
+	public Cook cook;
 	public int burger;
 	public int fries;
 	public int coke;
@@ -42,19 +42,7 @@ public class Diner extends Thread {
 		currentTime = table.availableTime;
 		CookManager.getInstance().clearCook(cook);		
 		TableManager.getInstance().clearTable(table);
-		String[] op = new String[10];
-		op[0] = name+"";
-		op[1] = entryTime+"";
-		op[2] = tableTime+"";
-		op[3] = cook.name+"";
-		op[4] = cookTime+"";
-		op[5] = burgerTime+"";
-		op[6] = friesTime+"";
-		op[7] = sodaTime+"";
-		op[8] = sundaeTime+"";
-		op[9] = currentTime+"";
-		
-		System.out.format("%s%9s%9s%9s%9s%14s%15s%15s%15s%12s\n",(Object [])op);
+		//String[] op = new String[10];
 		
 	}
 	

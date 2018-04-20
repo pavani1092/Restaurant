@@ -5,8 +5,8 @@ public class FriesMachine extends Machine {
 	private FriesMachine() {};
 	
 	@Override
-	public synchronized void AccessMachine(Cook c) {
-		availableTime = Math.max(availableTime, c.getCurrentTime())+3;
+	public synchronized void AccessMachine(Cook c, int count) {
+		availableTime = Math.max(availableTime, c.getCurrentTime())+3*count;
 		c.setCurrentTime(availableTime);
 	}
 	

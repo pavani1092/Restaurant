@@ -56,7 +56,7 @@ public class Restaurant {
 			}
 		}
 		System.out.println();
-		System.out.println("diner entryTime tableTime cook cookTime burgerReadyTime friesReadyTime sodaReadyTime sundaeReadyTime leavesAt");
+		//System.out.println("diner arrivalTime tableID tableTime cook cookTime burgerAccessAt friesAccessAt sodaAccessAt sundaeAccessAt foodReadyAt leavesAt");
 		for(int i=0;i<r.numDiners;i++)
 			diner[i].start();
 		int last = 0;
@@ -69,6 +69,24 @@ public class Restaurant {
 				e.printStackTrace();
 			}
 		}
+		for(int i =0;i<r.numDiners;i++) {
+			Diner d = diner[i];
+			String op[] = new String[10];
+			op[0] = "Diner:"+d.name;
+			op[1] = "TableID:"+d.table.id;
+			op[2] = "TableTime:"+d.tableTime;
+			op[3] = "CookID:"+d.cook.name;
+			op[4] = "CookTime:"+d.cookTime;
+			op[5] = "BurgerTime:"+d.burgerTime;
+			op[6] = "FriesTime:"+d.friesTime;
+			op[7] = "SodaTime:"+d.sodaTime;
+			op[8] = "SundaeTime:"+d.sundaeTime;
+			op[9] = "FoodReadyTime:"+(d.currentTime-30);
+			System.out.format("%10s%13s%15s%12s%14s%16s%15s%15s%16s%20s\n",(Object[])op);
+			System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------");
+			
+		}
+		
 		System.out.println("Last Diner leaves at "+last);	
 		
 	}

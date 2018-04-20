@@ -23,24 +23,24 @@ public class Cook extends Thread{
 			int machine = Machine.getNextAvailable(needBurger, needFries,needCoke,needSundae);
 			switch(machine) {
 				case 1:
-					diner.burger--;
-					BurgerMachine.bm.AccessMachine(this);
-					diner.burgerTime = getCurrentTime();
+					BurgerMachine.bm.AccessMachine(this,diner.burger);
+					diner.burgerTime = getCurrentTime() - diner.burger*5;
+					diner.burger = 0;
 					break;
 				case 2:
-					diner.fries--;
-					FriesMachine.fm.AccessMachine(this);
-					diner.friesTime = getCurrentTime();
+					FriesMachine.fm.AccessMachine(this,diner.fries);
+					diner.friesTime = getCurrentTime() - diner.fries*3 ;
+					diner.fries =0;
 					break;
 				case 3:
-					diner.coke--;
-					SodaMachine.cm.AccessMachine(this);
-					diner.sodaTime = getCurrentTime();
+					SodaMachine.cm.AccessMachine(this,diner.coke);
+					diner.sodaTime = getCurrentTime()- 2 ;
+					diner.coke = 0;
 					break;
 				case 4:
-					diner.sundae--;
-					SundaeMachine.sm.AccessMachine(this);
-					diner.sundaeTime = getCurrentTime();
+					SundaeMachine.sm.AccessMachine(this,diner.sundae);
+					diner.sundaeTime = getCurrentTime()- 1;
+					diner.sundae = 0;
 					break;
 				default: break;	
 			}
